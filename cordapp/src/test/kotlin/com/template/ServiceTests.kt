@@ -1,19 +1,18 @@
 package com.template
 
+import net.corda.core.utilities.getOrThrow
 import net.corda.testing.node.MockNetwork
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import kotlin.test.assertEquals
 
-class FlowTests {
+class ServiceTests {
     private val network = MockNetwork(listOf("com.template"))
     private val a = network.createNode()
-    private val b = network.createNode()
 
     init {
-        listOf(a, b).forEach {
-            it.registerInitiatedFlow(Responder::class.java)
-        }
+
     }
 
     @Before
@@ -24,6 +23,11 @@ class FlowTests {
 
     @Test
     fun `dummy test`() {
+        val expectedResult = "Daan"
+        val service = a.services.cordaService(MyService::class.java)
+        assertEquals(expectedResult, service.data.name)
 
+        val result = a.startFlow(MyFlow()).also { network.runNetwork() }.getOrThrow()
+        assertEquals(expectedResult, result)
     }
 }
