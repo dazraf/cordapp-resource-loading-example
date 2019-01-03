@@ -1,4 +1,4 @@
-This is a bare-bones demo of reading resources.
+This is a bare-bones demo of reading resources, using pure JDK resource loading and corda-jackson for parsing.
 
 * Class [MyService](cordapp/src/main/kotlin/com/template/MyService.kt) implements the logic 
 to load the resource [my-resource.json](config/dev/my-resource.json) and parse it to a 
