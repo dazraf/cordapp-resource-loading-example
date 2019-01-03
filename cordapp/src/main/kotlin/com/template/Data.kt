@@ -9,9 +9,10 @@ data class Data(val name: String) {
      * Jackson mapper using the Kotlin databind module
      */
     private val OBJECT_MAPPER = ObjectMapper().registerModule(KotlinModule())
+
     /**
      * simple parser using Jackson
      */
-    fun parse(json: String) : Data = OBJECT_MAPPER.readValue(json, Data::class.java)
+    fun parse(json: String): Data = OBJECT_MAPPER.readValue(json, Data::class.java)
   }
 }

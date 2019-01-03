@@ -8,19 +8,20 @@ import java.util.*
 
 @CordaService
 class MyService(serviceHub: AppServiceHub) : SingletonSerializeAsToken() {
-    companion object {
-        private const val FILENAME = "my-resource.json"
-    }
-    val data = loadResource(FILENAME).let { Data.parse(it) }
+  companion object {
+    private const val FILENAME = "my-resource.json"
+  }
 
-    init {
-        println(data)
-    }
+  val data = loadResource(FILENAME).let { Data.parse(it) }
 
-    /**
-     * Simple function, using the JDK, to read a resource file
-     */
-    private fun loadResource(fileName: String) =
-      Scanner(javaClass.classLoader.getResourceAsStream(fileName), "UTF-8").useDelimiter("\\A").next()
+  init {
+    println(data)
+  }
+
+  /**
+   * Simple function, using the JDK, to read a resource file
+   */
+  private fun loadResource(fileName: String) =
+    Scanner(javaClass.classLoader.getResourceAsStream(fileName), "UTF-8").useDelimiter("\\A").next()
 }
 

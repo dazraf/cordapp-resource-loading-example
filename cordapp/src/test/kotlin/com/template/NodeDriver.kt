@@ -12,11 +12,11 @@ import net.corda.testing.node.User
  * environment.
  */
 fun main(args: Array<String>) {
-    val rpcUsers = listOf(User("user1", "test", permissions = setOf("ALL")))
+  val rpcUsers = listOf(User("user1", "test", permissions = setOf("ALL")))
 
-    driver(DriverParameters(startNodesInProcess = true)) {
-        val nodeA = startNode(providedName = CordaX500Name("PartyA", "London", "GB"), rpcUsers = rpcUsers).getOrThrow()
-        val result = nodeA.rpc.startFlow(::MyFlow).returnValue.getOrThrow()
-        println("Received data: $result")
-    }
+  driver(DriverParameters(startNodesInProcess = true)) {
+    val nodeA = startNode(providedName = CordaX500Name("PartyA", "London", "GB"), rpcUsers = rpcUsers).getOrThrow()
+    val result = nodeA.rpc.startFlow(::MyFlow).returnValue.getOrThrow()
+    println("Received data: $result")
+  }
 }
