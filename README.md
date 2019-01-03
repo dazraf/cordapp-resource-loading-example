@@ -8,5 +8,3 @@ to load the resource [my-resource.json](config/dev/my-resource.json) and parse i
 checks that data has been correctly loaded and is accessible via the flow.
 * The [NodeDriver](cordapp/src/test/kotlin/com/template/NodeDriver.kt) checks 
 that we can access this result across a RPC call.
- 
-
