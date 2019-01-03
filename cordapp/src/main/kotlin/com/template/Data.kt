@@ -1,14 +1,10 @@
 package com.template
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import net.corda.client.jackson.JacksonSupport
 
 data class Data(val name: String) {
   companion object {
-    /**
-     * Jackson mapper using the Kotlin databind module
-     */
-    private val OBJECT_MAPPER = ObjectMapper().registerModule(KotlinModule())
+    private val OBJECT_MAPPER = JacksonSupport.createNonRpcMapper()
 
     /**
      * simple parser using Jackson
