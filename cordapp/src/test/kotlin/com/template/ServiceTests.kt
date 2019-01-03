@@ -22,7 +22,7 @@ class ServiceTests {
   fun tearDown() = network.stopNodes()
 
   @Test
-  fun `dummy test`() {
+  fun `that service can load the resource file and parse it`() {
     val expectedResult = "Daan"
     val service = a.services.cordaService(MyService::class.java)
     assertEquals(expectedResult, service.data.name)
