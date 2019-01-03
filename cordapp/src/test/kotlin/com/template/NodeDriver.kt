@@ -18,6 +18,5 @@ fun main(args: Array<String>) {
         val nodeA = startNode(providedName = CordaX500Name("PartyA", "London", "GB"), rpcUsers = rpcUsers).getOrThrow()
         val result = nodeA.rpc.startFlow(::MyFlow).returnValue.getOrThrow()
         println("Received data: $result")
-        System.exit(0)
     }
 }
